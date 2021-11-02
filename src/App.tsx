@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { useStore } from './store/store';
+import TabSelector from './components/TabSelector'
+import Worksheet from './components/Worksheet';
+import Solution from './components/Solution'
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [{ selectedTab, documents }] = useStore();
+
+    return (
+        <div className="App">
+
+            <div className="control-panel">
+                <Header />
+                <TabSelector />
+            </div>
+
+            {documents[selectedTab].docType === 'worksheet' ? (
+                <Worksheet />
+            ) : (
+                <Solution />
+            )}
+
+            <Footer />
+
+        </div>
+    );
 }
 
 export default App;

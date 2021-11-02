@@ -1,0 +1,126 @@
+.control-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    align-items: stretch;
+}
+
+.header {
+    background-color: #5A5A5A;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+        font-family: 'Open Sans';
+        font-size: 24px;
+        color: #fff;
+    }
+}
+
+.tab-selector {
+    display: flex;
+    height: 44px;
+    border-bottom: solid 1px #5A5A5A;
+    align-items: center;
+    overflow-x:auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.tab {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex: 0 0 160px;
+    justify-content: center;
+    align-items: center;
+    transition: all .1s;
+
+    &__close-btn {
+        position: absolute;
+        right: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        width: 18px;
+        height: 22px;
+        border-radius: 2px;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.116);
+        }
+        
+        &__icon {
+            color: #000;
+            transition: all .1s;
+            font-size: 15px;
+        }
+    }
+}
+
+.tab-content {
+    display: flex;
+    flex: 0 0 160px;
+    padding-left: 30px;
+    justify-content: flex-start;
+    align-items: center;
+    border-right: solid 1px #187A8F;
+    height: 28px;
+    //width: 160px;
+
+    &--no-right-border {
+        border-right: none;
+    }
+
+    &__label {
+        //padding: 0 36px;
+        font-size: 16px;
+    }
+}
+
+.selected-tab {
+    background-color: #5A5A5A;
+    height: 100%;
+    border-right: none;
+
+    &__label {
+        color: #fff;
+    }
+
+    &__close-btn__icon {
+        color: #fff;
+    }
+}
+
+.selected-tab-content {
+    border-right: none;
+
+    &__label {
+        color: #fff;
+    }
+}
+
+.new-tab {
+
+    flex: 0 0 50px;
+
+    &:hover {
+        //background-color: #5A5A5A;
+        color: #187A8F;
+    }
+
+    &__label {
+        //padding: 0 20px;
+        font-size: 20px;
+    }
+}
+
+.display-hidden {
+    color: transparent;
+}
